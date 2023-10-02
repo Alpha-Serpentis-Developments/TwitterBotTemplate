@@ -1,6 +1,12 @@
 # Twitter Bot Template
 
-This is a template for a very basic Twitter bot that uses OAuth 2.0.
+This is a template for a very basic Twitter bot that uses OAuth 2.0 to be able to send tweets on another
+account's behalf.
+
+## Requirements
+- Java 17 or higher
+- Twitter Developer Account
+  - You can get one [here](https://developer.twitter.com)
 
 ## Setup
 
@@ -15,7 +21,7 @@ If you have both `.pem` and `.key` files present, you will need to convert those
 command:
 
 ```shell
-openssl pkcs12 -export -out localhost.p12 -inkey localhost.key -in localhost.crt
+openssl pkcs12 -export -out [name of export].p12 -inkey [key] -in [crt]
 ```
 
 You will need to specify a passphrase for the `.p12` file. This will be used for the `CERT_PASSPHRASE` environment
@@ -35,4 +41,5 @@ variable.
 - `CLIENT_SECRET`
   - Listed under "Keys and tokens" -> "OAuth 2.0 Client ID and Client Secret" on the Twitter Developer Portal
 - `REDIRECT_URI`
-  - The redirect URI you specified under "Settings" -> "User Authentication Settings" on the Twitter Developer Portal
+  - The redirect URI you specified under "Settings" -> "User Authentication Settings" on the Twitter Developer Portal.
+  Ensure the port is added to the redirect URI in both the environment variable and on the Developer Portal.

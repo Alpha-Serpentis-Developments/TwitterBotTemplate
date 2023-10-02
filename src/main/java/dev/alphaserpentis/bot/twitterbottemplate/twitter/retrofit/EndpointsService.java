@@ -27,7 +27,7 @@ public class EndpointsService {
     ) {
         PostTweetBody body = new PostTweetBody(content);
 
-        return execute(api.postTweet(authorizationHeader, body));
+        return execute(getApi().postTweet(authorizationHeader, body));
     }
 
     public AccessTokenResponse generateNewAccessToken(
@@ -42,7 +42,7 @@ public class EndpointsService {
                 "client_id", clientId
         );
 
-        return execute(api.generateNewAccessToken(authorizationHeader, fields));
+        return execute(getApi().generateNewAccessToken(authorizationHeader, fields));
     }
 
     public AccessTokenResponse generateNewAccessToken(
@@ -61,7 +61,7 @@ public class EndpointsService {
                 "code_verifier", codeVerifier
         );
 
-        return execute(api.generateNewAccessToken(authorizationHeader, fields));
+        return execute(getApi().generateNewAccessToken(authorizationHeader, fields));
     }
 
     public static <T> T execute(@NonNull Single<T> call) {
